@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سوبر ماركت أونلاين - متجر إلكتروني</title>
+    <link rel="stylesheet" href="shop-styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">🛒 سوبر ماركت أونلاين</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active" onclick="showPage('home')">الرئيسية</a></li>
+                <li><a href="#products" class="nav-link" onclick="showPage('products')">المنتجات</a></li>
+                <li><a href="#cart" class="nav-link" onclick="showPage('cart')">العربة <span id="cart-count" class="cart-badge">0</span></a></li>
+                <li><a href="#about" class="nav-link" onclick="showPage('about')">من نحن</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <section id="home" class="page active">
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1>مرحباً بك في سوبر ماركت أونلاين</h1>
+                <p class="hero-subtitle">🌟 تجربة تسوق إلكترونية مصغرة بسيطة وسهلة</p>
+                <div class="hero-description">
+                    <p>استمتع بتجربة تسوق حديثة من راحة منزلك. نقدم لك أفضل المنتجات الأساسية مع واجهة سهلة الاستخدام وعربة تسوق تفاعلية.</p>
+                    <p><strong>🎯 مميزات الموقع:</strong></p>
+                    <ul class="features-list">
+                        <li>✅ تصفح منتجات متنوعة من السوبر ماركت</li>
+                        <li>✅ عربة تسوق تفاعلية مع حفظ البيانات</li>
+                        <li>✅ تصميم حديث وسهل الاستخدام</li>
+                        <li>✅ تم تطويره بـ HTML و CSS و JavaScript فقط</li>
+                    </ul>
+                </div>
+                <button class="btn btn-primary btn-lg" onclick="showPage('products')">🛍️ ابدأ التسوق الآن</button>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <div class="info-card">
+                <h3>🚀 سريع</h3>
+                <p>واجهة خفيفة وسريعة بدون تحميل مكتبات خارجية</p>
+            </div>
+            <div class="info-card">
+                <h3>💾 محفوظ</h3>
+                <p>عربتك محفوظة تلقائياً حتى تعود مجدداً</p>
+            </div>
+            <div class="info-card">
+                <h3>📱 متجاوب</h3>
+                <p>يعمل بكمال على جميع الأجهزة والشاشات</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Page -->
+    <section id="products" class="page">
+        <div class="page-container">
+            <h2>🛍️ المنتجات المتاحة</h2>
+            <p class="section-subtitle">اختر منتجاتك المفضلة وأضفها إلى العربة</p>
+            
+            <div id="products-grid" class="products-grid">
+                <!-- سيتم ملء المنتجات من JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Page -->
+    <section id="cart" class="page">
+        <div class="page-container">
+            <h2>🛒 عربة التسوق</h2>
+            
+            <div id="empty-cart-message" class="empty-cart-message">
+                <p>عربتك فارغة 😢</p>
+                <p>ابدأ بإضافة بعض المنتجات الرائعة!</p>
+                <button class="btn btn-primary" onclick="showPage('products')">تصفح المنتجات</button>
+            </div>
+
+            <div id="cart-content" class="cart-content hidden">
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th>المنتج</th>
+                            <th>السعر</th>
+                            <th>الكمية</th>
+                            <th>الإجمالي</th>
+                            <th>الإجراء</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-items">
+                        <!-- سيتم ملء عناصر العربة من JavaScript -->
+                    </tbody>
+                </table>
+
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span>العدد الكلي للمنتجات:</span>
+                        <span id="total-items">0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>المجموع الفرعي:</span>
+                        <span id="subtotal">0.00 ر.س</span>
+                    </div>
+                    <div class="summary-row highlight">
+                        <span>الإجمالي النهائي:</span>
+                        <span id="total-price">0.00 ر.س</span>
+                    </div>
+                </div>
+
+                <div class="cart-actions">
+                    <button class="btn btn-danger" onclick="clearCart()">🗑️ حذف كل المنتجات</button>
+                    <button class="btn btn-success btn-lg" onclick="checkout()">✅ إتمام الشراء</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Page -->
+    <section id="about" class="page">
+        <div class="page-container">
+            <h2>📖 من نحن</h2>
+            
+            <div class="about-content">
+                <div class="about-section">
+                    <h3>🎯 فكرة المشروع</h3>
+                    <p>هذا المشروع عبارة عن متجر إلكتروني بسيط يحاكي تجربة التسوق الحقيقية عبر الإنترنت. تم تطويره بالكامل باستخدام تقنيات الويب الأساسية فقط دون الاعتماد على أي مكتبات خارجية.</p>
+                </div>
+
+                <div class="about-section">
+                    <h3>👥 الفريق</h3>
+                    <p>تم تطوير هذا المشروع بواسطة <strong>فريق من 4 أشخاص</strong> متخصصين في تطوير الويب، حيث ساهم كل فرد في جوانب مختلفة من المشروع.</p>
+                </div>
+
+                <div class="about-section">
+                    <h3>📚 الهدف من المشروع</h3>
+                    <p>هذا المشروع يهدف إلى:</p>
+                    <ul class="about-list">
+                        <li>✓ تطبيق عملي لتقنيات <strong>HTML و CSS و JavaScript</strong></li>
+                        <li>✓ بناء هيكل صفحات ويب متعددة</li>
+                        <li>✓ تنظيم المحتوى بشكل احترافي</li>
+                        <li>✓ تصميم واجهات مستخدم جميلة</li>
+                        <li>✓ التعامل مع DOM بكفاءة</li>
+                        <li>✓ تطبيق منطق برمجي بسيط وفعال</li>
+                        <li>✓ بناء تجربة استخدام كاملة</li>
+                    </ul>
+                </div>
+
+                <div class="about-section">
+                    <h3>⭐ مميزات التطبيق</h3>
+                    <ul class="about-list">
+                        <li>🚀 واجهة سريعة وخفيفة بدون مكتبات</li>
+                        <li>💾 حفظ تلقائي للعربة في localStorage</li>
+                        <li>📱 تصميم متجاوب للشاشات المختلفة</li>
+                        <li>🎨 ألوان هادئة وتصميم احترافي</li>
+                        <li>⚡ عمليات فورية وتفاعل سلس</li>
+                        <li>🔧 كود منظم وسهل الصيانة</li>
+                        <li>📝 بدون استخدام صور أو مكتبات خارجية</li>
+                    </ul>
+                </div>
+
+                <div class="about-section">
+                    <h3>⚙️ كيفية عمل التطبيق</h3>
+                    <p><strong>1️⃣ الصفحة الرئيسية:</strong> تعرّفك على التطبيق ومميزاته</p>
+                    <p><strong>2️⃣ صفحة المنتجات:</strong> تعرض قائمة بجميع المنتجات المتاحة مع إمكانية الإضافة للعربة</p>
+                    <p><strong>3️⃣ عربة التسوق:</strong> تعرض المنتجات المختارة مع إمكانية التعديل والحذف</p>
+                    <p><strong>4️⃣ حفظ البيانات:</strong> يتم حفظ العربة في localStorage لحماية بيانات المستخدم</p>
+                </div>
+
+                <div class="about-section highlight-section">
+                    <h3>✨ التقنيات المستخدمة</h3>
+                    <p><strong>لغات البرمجة:</strong> HTML5, CSS3, Vanilla JavaScript</p>
+                    <p><strong>مميزات:</strong> localStorage API, DOM Manipulation, Event Listeners</p>
+                    <p><strong>التصميم:</strong> Flexbox, CSS Grid, Responsive Design</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 سوبر ماركت أونلاين - جميع الحقوق محفوظة | تم التطوير بـ HTML, CSS, JavaScript</p>
+    </footer>
+
+    <script src="shop.js"></script>
+</body>
+</html>
